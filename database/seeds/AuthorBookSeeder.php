@@ -18,8 +18,6 @@ class AuthorBookSeeder extends Seeder
             DB::table('author_book')->insert([
                 'book_id' => $faker->unique()->numberBetween(1,30),
                 'author_id' => $faker->numberBetween(1,20),
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

@@ -16,7 +16,7 @@ class BookSeeder extends Seeder
         $faker = Faker::create();
         for ($i = 0; $i < 30; $i++) {
             DB::table('books')->insert([
-                'title' => $faker->text($maxNbChars = 191),
+                'title' => $faker->sentence(8),
                 'pages' => $faker->numberBetween(100, 1000),
                 'content' => $faker->paragraph(10),
                 'published_on' => $faker->dateTimeBetween($startDate = '-10 years', $endData = 'now'),

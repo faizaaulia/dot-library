@@ -10,14 +10,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
@@ -73,8 +76,45 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        @guest
+                        <div class="card-body">
+                            @yield('content')
+                        </div>
+                        @else
+                        <div class="card">
+                            <div class="card-header">{{ __('Dashboard') }}</div>
+                            <ul class="nav justify-content-start">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Buku</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('books.index') }}">Data Buku</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('books.create') }}">Tambah Buku</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Author</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Data Author</a></li>
+                                        <li><a class="dropdown-item" href="#">Tambah Author</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr class="m-0">
+                            <div class="card-body">
+                                @yield('content')
+                            </div>
+                        </div>
+                        @endguest
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
+@stack('scripts')
 </html>
