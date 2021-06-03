@@ -24,7 +24,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->title }}</td>
                 <td>
-                    {{ $item->authors_count > 1 ? $item->authors[0]->name . ', dkk.' : $item->authors[0]->name }}
+                    {{ $item->authors->implode('name', ", ")}}
                 </td>
                 <td>{{ $item->formated_date }}</td>
                 <td width="5%">

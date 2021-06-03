@@ -24,5 +24,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function() {
     Route::resource('/books', 'BookController')->except(['post', 'update']);
     Route::post('books/{book?}', 'BookController@store')->name('books.store');
     Route::put('books/{book?}', 'BookController@store')->name('books.store');
+
+    Route::resource('/authors', 'AuthorController');
 });
 

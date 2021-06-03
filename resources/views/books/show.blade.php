@@ -29,7 +29,7 @@
     <form action="{{ route('books.destroy', ['book' => $data->id]) }}" method="post">
         @csrf
         @method('delete')
-        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus berita?')">Hapus</button>
+        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus buku?')">Hapus</button>
     </form>
 </div>
 @endsection

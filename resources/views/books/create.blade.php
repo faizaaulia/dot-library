@@ -25,10 +25,9 @@
                     <label for="title" class="form-label">Judul</label>
                     <input type="text" class="form-control" name="title" placeholder="Judul Buku" value="{{ isset($book) ? $book->title : '' }}">
                 </div>
-                {{-- {{ dd($book->authors) }} --}}
                 <div class="col col-md-6 mb-3">
                     <label for="author_id" class="form-label">Authors</label><br>
-                    <select class="multi-select" name="author_id[]" multiple="multiple" width="100%">
+                    <select class="multi-select" name="author_id[]" multiple="multiple" style="width: 100%">
                         @foreach ($authors as $item)
                             <option value="{{ $item->id }}" {{ isset($book) ? in_array($item->id, $book->authors->pluck('id')->toArray()) ? 'selected' : '' : '' }}>{{ $item->name }}</option>
                         @endforeach
