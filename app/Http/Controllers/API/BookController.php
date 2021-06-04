@@ -25,11 +25,13 @@ class BookController extends Controller
                     $q->where('name', 'LIKE', "%$search%");
                 })->select('id', 'title', 'pages', 'published_on')->get();
             }
+
+            $book_exists = $books->count() > 0;
             
             return response()->json([
-                'success' => true,
-                'message' => 'Successfully get book data',
-                'data' => $books
+                'success' => $book_exists,
+                'message' => $book_exists ? 'Successfully get books data' : 'Books not found',
+                'data' => $book_exists ? $books : []
             ], 200);
         } catch (Exception $e) {
             report($e);
