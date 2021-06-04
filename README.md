@@ -1,61 +1,66 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Penjelasan Project
+Sebuah aplikasi website sederhana yang dapat membantu pengelolaan daftar buku pada suatu perpustakaan. Daftar buku tersebut diolah oleh seorang admin sekaligus dengan mengelola daftar penulis buku. Selain itu, disediakan *API endpoint* untuk menyajikan beberapa informasi seperti daftar buku, detail buku, pencarian buku berdasarkan judul buku, dan filter buku berdasarkan penulis.
 
-## About Laravel
+## Desain Basis Data
+![database-schema](https://user-images.githubusercontent.com/21327758/120672703-bc7aeb00-c4bc-11eb-9834-2270a638faf4.png "database-schema")
+> atau dapat diakses melalui [dbdiagram.io (library-database-schema)](https://dbdiagram.io/d/60b8e3deb29a09603d17d6d2 "dbdiagram.io (library-database-schema)")
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Screenshot Aplikasi
+<p align="center"><b>Book Dashboard</b></p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![books index](https://user-images.githubusercontent.com/21327758/120667798-09a88e00-c4b8-11eb-8756-8a9955fd8d4d.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center"><b>Add Book</b></p>
 
-## Learning Laravel
+![books create](https://user-images.githubusercontent.com/21327758/120667795-090ff780-c4b8-11eb-8f5d-54f1d116af13.png)
+<p align="center"><b>Book Detail</b></p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![books show](https://user-images.githubusercontent.com/21327758/120667802-0a412480-c4b8-11eb-921e-a04922a966b4.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p align="center"><b>Edit Book</b></p>
 
-## Laravel Sponsors
+![books edit](https://user-images.githubusercontent.com/21327758/120667797-090ff780-c4b8-11eb-81ea-b3671b5c4516.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<p align="center"><b>Author Dashboard</b></p>
 
-### Premium Partners
+![authors index](https://user-images.githubusercontent.com/21327758/120667789-07deca80-c4b8-11eb-84ac-61899517c373.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+<p align="center"><b>Add Author</b></p>
 
-## Contributing
+![authors create](https://user-images.githubusercontent.com/21327758/120667780-06150700-c4b8-11eb-9648-8aac8aa5cb98.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p align="center"><b>Author Detail</b></p>
 
-## Code of Conduct
+![authors show](https://user-images.githubusercontent.com/21327758/120667794-08776100-c4b8-11eb-8e49-d6168c7e3cc3.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p align="center"><b>Edit Author</b></p>
 
-## Security Vulnerabilities
+![authors edit](https://user-images.githubusercontent.com/21327758/120667787-07463400-c4b8-11eb-8c70-416db9dbc5c4.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Dependency
+- [Laravel UI](https://github.com/laravel/ui "Laravel UI") - Library untuk membuat *auth scaffolding* 
+- [Faker](https://github.com/FakerPHP/Faker) - Library untuk membuat data dummy
 
-## License
+## Instalasi Project
+1. Clone repository ini `https://github.com/faizaaulia/dot-library.git` atau download source codenya lalu ekstrak
+2. Masuk ke direktori project <br>
+`cd dot-library`
+3. Install *dependencies* <br>
+`composer install`
+4. Atur file .env <br>
+`cp .env.example .env`
+5. *Generate app encryption key* <br>
+`php artisan key:generate`
+6. Buat *database* kosong
+7. Tambahkan informasi database di file **.env**<br>
+Isi variabel `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` sesuai dengan pengaturan database yang digunakan
+8. Migrasi *database* <br>
+`php artisan migrate`
+9. *Database seeding* <br>
+Memasukkan beberapa data dummy untuk aplikasi <br>
+`php artisan db:seed`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## API Documentation
+[Postman API documentation](https://documenter.getpostman.com/view/5188042/TzY4eEHg "Postman API documentation")
