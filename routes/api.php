@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1/books')->group(function() {
-    Route::get('/{search?}', 'API\BookController@index');
     Route::get('/{id}', 'API\BookController@show');
+    Route::get('/{search?}', 'API\BookController@index');
 });
