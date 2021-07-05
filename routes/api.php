@@ -21,4 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::prefix('v1/books')->group(function() {
     Route::get('/{id}', 'API\BookController@show');
     Route::get('/{search?}', 'API\BookController@index');
+    Route::post('/store', 'API\BookController@store');
+});
+Route::prefix('v1/authors')->group(function() {
+    Route::post('/store', 'API\AuthorController@store');
+    Route::delete('/{id}', 'API\AuthorController@destroy');
+    Route::put('/{id}', 'API\AuthorController@update');
 });

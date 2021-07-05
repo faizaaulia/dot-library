@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BookRequest;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Exception;
@@ -52,6 +53,29 @@ class BookController extends Controller
                 'success' => true,
                 'message' => 'Successfully get book detail',
                 'data' => $book
+            ], 200);
+        } catch (Exception $e) {
+            report($e);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Something wrong',
+                'errors' => $e->getMessage()
+            ]);
+        }
+    }
+
+    public function store(BookRequest $bookRequest)
+    {
+        $data = $bookRequest->except(['author_id']);
+        
+        try {
+            $book = Book::create($data);
+            $book->authors()->attach($bookRequest->author_id);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully create book',
             ], 200);
         } catch (Exception $e) {
             report($e);
