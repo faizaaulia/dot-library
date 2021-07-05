@@ -33,15 +33,23 @@ class AuthorController extends Controller
 
     public function destroy($id)
     {
+        $author = Author::find($id);
+        
         try {
-            $author = Author::findOrFail($id);
-            $author->delete();
-            $author->books()->detach();
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Successfully delete author',
-            ], 200);
+            if ($author) {
+                $author->delete();
+                $author->books()->detach();
+    
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Successfully delete author',
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Author not found',
+                ], 404);
+            }
         } catch (Exception $e) {
             report($e);
             
@@ -55,17 +63,24 @@ class AuthorController extends Controller
 
     public function update(AuthorRequest $authorRequest, $id)
     {
-        $author = Author::findOrFail($id);
-        $data = $authorRequest->except(['book_id']);
-
+        $author = Author::find($id);
+        
         try {
-            $author->update($data);
-            $author->books()->sync($authorRequest->book_id);
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Successfully update author',
-            ], 200);
+            if ($author) {
+                $data = $authorRequest->except(['book_id']);
+                $author->update($data);
+                $author->books()->sync($authorRequest->book_id);
+    
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Successfully update author',
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Author not found',
+                ], 404);
+            }
         } catch (Exception $e) {
             report($e);
             
